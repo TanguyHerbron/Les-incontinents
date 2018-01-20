@@ -79,9 +79,6 @@ int main()
 {
     char val[100];
     int i;
-    int nbAntsTotal = 0;
-    int nbAntsIn = 0;
-    int nbAntsOut = 0;
     int isOver = 0;
     ant newAnt;
     nest newNest;
@@ -298,7 +295,7 @@ int main()
 
                     if(newNest.nbAntNest > 0)
                     {
-                        printf("ANT_OUT 1 %d 0 0\n", 100);
+                        printf("ANT_OUT %d %d 0 0\n", newNest.alist[newNest.nbAntNest-1].type, 100);
                     }
 
                     printf("END\n");
