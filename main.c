@@ -401,15 +401,16 @@ int main()
                     if(newNest.stock > 10)
                     {
                         printf("ANT_NEW 0\n");
-                        printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
+                        printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n", newNest.memory[0]+1);
+                        printf("END\n");
                     }
 
                     if(newNest.nbAntNest > 0)
                     {
                         printf("ANT_OUT %d %d 0 0\n", newNest.alist[newNest.nbAntNest-1].type, 100);
+                        printf("END\n");
                     }
 
-                    printf("END\n");
                 }
             }
         }
