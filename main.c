@@ -233,7 +233,6 @@ int main()
                     if(strcmp(val, "END") == 0)
                     {
                         isOver = 1;
-                        printf("Ant : \n\t%d\n\t%d\n\t%d", newAnt.type, newAnt.stamina, newAnt.stock);
                     }
                 }
 
@@ -286,8 +285,6 @@ int main()
                         if(strcmp(val, "END") == 0)
                         {
                             isOver = 1;
-                            printf("AH\n");
-                            printf("Nest : \n\t%d\n\t%d\n\t%d\n", newNest.stock, newNest.memory[0], newNest.memory[1]);
                         }
                     }
 
