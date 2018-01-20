@@ -99,9 +99,9 @@ int main()
                 newAnt.nbNestSee = 0;
                 newAnt.nbFoodSee = 0;
 
-                printf("EXPLORE\n");
-                printf("END\n");
-                /*while(!isOver)
+                /*printf("EXPLORE\n");
+                printf("END\n");*/
+                while(!isOver)
                 {
                     scanf("%s", val);
 
@@ -351,7 +351,7 @@ int main()
                 }
 
                 printf("END\n");
-            */}
+            }
             else
             {
                 if(strcmp(val, "NEST") == 0)
