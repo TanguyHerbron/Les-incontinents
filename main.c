@@ -235,9 +235,114 @@ int main()
 
                 //SEND ANT
 
-                if(newAnt.stamina > 0)
+                /*if(newAnt.stamina > 0)
                 {
                     printf("EXPLORE\n");
+                }*/
+
+                if(newAnt.stamina >= 150)
+                {
+                    if(newAnt.stock >= 500)
+                    {
+                        if(newAnt.nbNestSee > 0)
+                        {
+                            int closest = newAnt.nestHey[0].dist;
+                            int bestChoice = 0;
+                            int isGone = 0;
+                            int compteur = 0;
+
+                            while(!isGone && compteur <= newAnt.nbNestSee)
+                            {
+                                if(!newAnt.nestHey[compteur].isFar)
+                                {
+                                    printf("NEST %d\n", newAnt.nestHey[compteur].id);
+                                    isGone = 1;
+                                }
+                                else
+                                {
+                                    if(newAnt.nestHey[compteur].dist < closest)
+                                    {
+                                        dist = newAnt.nestHey[compteur].dist;
+                                        bestChoice = compteur;
+                                    }
+                                }
+                                compteur++;
+                            }
+
+                            if(!isGone)
+                            {
+                                printf("MOVE_TO %d\n", newAnt.nestHey[bestChoice].id);
+                            }
+                        }
+                        else
+                        {
+                            printf("EXPLORE\n");
+                        }
+                    }
+                    else
+                    {
+                        if(newAnt.nbFoodSee > 0)
+                        {
+                            int isGone = 0;
+                            int compteur = 0;
+
+                            while(!isGone && compteur < newAnt.nbFoodSee)
+                            {
+                                if(!newAnt.foodHey[compteur].isFar)
+                                {
+                                    if(newAnt.stamina < 10000)
+                                    {
+                                        if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
+                                        {
+                                            printf("EAT %d", (10000-newAnt.stamina)/10);
+                                        }
+                                        else
+                                        {
+                                            printf("EAT %d", newAnt.stock);
+                                        }
+                                        isGone = 1;
+                                    }
+                                    else
+                                    {
+                                        if(newAnt.stock < 1000)
+                                        {
+                                            if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
+                                            {
+                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
+                                            }
+                                            else
+                                            {
+                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
+                                            }
+
+                                            isGone = 1;
+                                        }
+                                    }
+                                }
+                                compteur++;
+                            }
+
+                            /*if(!isGone)
+                            {
+
+                            }*/
+                        }
+                        /*else
+                        {
+
+                        }*/
+                    }
+                }
+                else
+                {
+                    if(10000-newAnt.stamina <= newAnt.stock * 10)
+                    {
+                        printf("EAT %d", (10000-newAnt.stamina)/10);
+                    }
+                    else
+                    {
+                        printf("EAT %d", newAnt.stock);
+                    }
                 }
 
                 printf("END\n");
