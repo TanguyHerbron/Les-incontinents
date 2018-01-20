@@ -293,7 +293,7 @@ int main()
                     if(newNest.memory[0] == 0)
                     {
                         printf("ANT_NEW 0\n");
-                        printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \n");
+                        printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
                     }
 
                     if(newNest.nbAntNest > 0)
