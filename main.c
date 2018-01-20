@@ -98,6 +98,9 @@ int main()
                 newAnt.nbAntSee = 0;
                 newAnt.nbNestSee = 0;
                 newAnt.nbFoodSee = 0;
+
+                printf("EXPLORE\n");
+                printf("END\n");
                 /*while(!isOver)
                 {
                     scanf("%s", val);
