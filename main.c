@@ -262,7 +262,7 @@ int main()
                                 {
                                     if(newAnt.nestHey[compteur].dist < closest)
                                     {
-                                        dist = newAnt.nestHey[compteur].dist;
+                                        closest = newAnt.nestHey[compteur].dist;
                                         bestChoice = compteur;
                                     }
                                 }
