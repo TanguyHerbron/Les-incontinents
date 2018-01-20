@@ -98,7 +98,7 @@ int main()
                 newAnt.nbAntSee = 0;
                 newAnt.nbNestSee = 0;
                 newAnt.nbFoodSee = 0;
-                while(!isOver)
+                /*while(!isOver)
                 {
                     scanf("%s", val);
 
@@ -231,7 +231,9 @@ int main()
                     {
                         isOver = 1;
                     }
-                }
+                }*/
+
+                printf("EXPLORE\n");
 
                 //SEND ANT
 
