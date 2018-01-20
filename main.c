@@ -236,8 +236,6 @@ int main()
                     }
                 }
 
-                printf("EXPLORE\n");
-
                 //SEND ANT
 
                 if(newAnt.stamina > 0)
