@@ -298,7 +298,7 @@ int main()
 
                     if(newNest.nbAntNest > 0)
                     {
-                        printf("ANT_OUT 1 %d 0 0", 100);
+                        printf("ANT_OUT 1 %d 0 0\n", 100);
                     }
 
                     printf("END\n");
