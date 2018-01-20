@@ -267,8 +267,8 @@ int main()
 
                         if(strcmp(val, "ANT_COUNT") == 0)
                         {
-                            scanf("%d", &newNest.alist[newNest.nbAntNest].nb);
                             scanf("%d", &newNest.alist[newNest.nbAntNest].type);
+                            scanf("%d", &newNest.alist[newNest.nbAntNest].nb);
                             newNest.nbAntNest++;
                         }
 
