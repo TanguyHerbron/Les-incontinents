@@ -231,16 +231,16 @@ int main()
                     {
                         isOver = 1;
                     }
-                }*/
+                }
 
                 printf("EXPLORE\n");
 
                 //SEND ANT
 
-                /*if(newAnt.stamina > 0)
+                if(newAnt.stamina > 0)
                 {
                     printf("EXPLORE\n");
-                }*/
+                }
 
                 if(newAnt.stamina >= 150)
                 {
@@ -324,15 +324,15 @@ int main()
                                 compteur++;
                             }
 
-                            /*if(!isGone)
+                            if(!isGone)
                             {
 
-                            }*/
+                            }
                         }
-                        /*else
+                        else
                         {
 
-                        }*/
+                        }
                     }
                 }
                 else
@@ -348,7 +348,7 @@ int main()
                 }
 
                 printf("END\n");
-            }
+            */}
             else
             {
                 if(strcmp(val, "NEST") == 0)
