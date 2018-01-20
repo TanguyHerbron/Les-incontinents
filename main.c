@@ -318,11 +318,11 @@ int main()
                                     {
                                         if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
                                         {
-                                            printf("EAT %d", (10000-newAnt.stamina)/10);
+                                            printf("EAT %d\n", (10000-newAnt.stamina)/10);
                                         }
                                         else
                                         {
-                                            printf("EAT %d", newAnt.stock);
+                                            printf("EAT %d\n", newAnt.stock);
                                         }
                                         isGone = 1;
                                     }
