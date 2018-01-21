@@ -243,146 +243,154 @@ int main()
                     printf("EXPLORE\n");
                 }*/
 
-                if(newAnt.stamina >= 150)
+                if(newAnt.memory[1] == 255)
                 {
-                    if(newAnt.stock >= 500)
+                    printf("SUICIDE\n");
+                }
+                else
+                {
+
+                    if(newAnt.stamina >= 150)
                     {
-                        if(newAnt.nbNestSee > 0)
+                        if(newAnt.stock >= 500)
                         {
-                            int closest = newAnt.nestHey[0].dist;
-                            int bestChoice = 0;
-                            int isGone = 0;
-                            int compteur = 0;
-
-                            while(!isGone && compteur <= newAnt.nbNestSee)
+                            if(newAnt.nbNestSee > 0)
                             {
-                                if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
-                                {
-                                    printf("NEST %d\n", newAnt.nestHey[compteur].id);
-                                    isGone = 1;
-                                }
-                                else
-                                {
-                                    if(newAnt.nestHey[compteur].dist < closest)
-                                    {
-                                        closest = newAnt.nestHey[compteur].dist;
-                                        bestChoice = compteur;
-                                    }
-                                }
-                                compteur++;
-                            }
-
-                            if(!isGone)
-                            {
-                                printf("MOVE_TO %d\n", newAnt.nestHey[bestChoice].id);
-                            }
-                        }
-                        else
-                        {
-                            if(newAnt.nbPheromone > 0)
-                            {
-                                int closest = newAnt.psee[0].dist;
+                                int closest = newAnt.nestHey[0].dist;
                                 int bestChoice = 0;
+                                int isGone = 0;
+                                int compteur = 0;
 
-                                for(i = 0; i < newAnt.nbPheromone; i++)
+                                while(!isGone && compteur <= newAnt.nbNestSee)
                                 {
-                                    if(newAnt.psee[i].type < newAnt.memory[1])
+                                    if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
                                     {
-                                        bestChoice = i;
-                                    }
-                                }
-
-                                printf("SET_MEMORY %d %d\n", newAnt.memory[0], newAnt.psee[bestChoice].type);
-                                printf("MOVE_TO %d\n", newAnt.psee[bestChoice].id);
-                            }
-                            else
-                            {
-                                printf("EXPLORE\n");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(newAnt.nbFoodSee > 0)
-                        {
-                            int isGone = 0;
-                            int compteur = 0;
-                            int closest = 0;
-                            int dist = newAnt.foodHey[0].dist;
-
-                            while(!isGone && compteur < newAnt.nbFoodSee)
-                            {
-                                if(!newAnt.foodHey[compteur].isFar)
-                                {
-                                    if(newAnt.stamina < 9000)
-                                    {
-                                        if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
-                                        {
-                                            printf("EAT %d\n", (10000-newAnt.stamina)/10);
-                                        }
-                                        else
-                                        {
-                                            printf("EAT %d\n", newAnt.stock);
-                                        }
+                                        printf("NEST %d\n", newAnt.nestHey[compteur].id);
                                         isGone = 1;
                                     }
                                     else
                                     {
-                                        if(newAnt.stock < 1000)
+                                        if(newAnt.nestHey[compteur].dist < closest)
                                         {
-                                            if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
-                                            {
-                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
-                                            }
-                                            else
-                                            {
-                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
-                                            }
-
-                                            isGone = 1;
+                                            closest = newAnt.nestHey[compteur].dist;
+                                            bestChoice = compteur;
                                         }
                                     }
+                                    compteur++;
+                                }
+
+                                if(!isGone)
+                                {
+                                    printf("MOVE_TO %d\n", newAnt.nestHey[bestChoice].id);
+                                }
+                            }
+                            else
+                            {
+                                if(newAnt.nbPheromone > 0)
+                                {
+                                    int closest = newAnt.psee[0].dist;
+                                    int bestChoice = 0;
+
+                                    for(i = 0; i < newAnt.nbPheromone; i++)
+                                    {
+                                        if(newAnt.psee[i].type < newAnt.memory[1])
+                                        {
+                                            bestChoice = i;
+                                        }
+                                    }
+
+                                    printf("SET_MEMORY %d %d\n", newAnt.memory[0], newAnt.psee[bestChoice].type);
+                                    printf("MOVE_TO %d\n", newAnt.psee[bestChoice].id);
                                 }
                                 else
                                 {
-                                    if(newAnt.foodHey[compteur].dist < dist)
-                                    {
-                                        closest = compteur;
-                                        dist = newAnt.foodHey[compteur].dist;
-                                    }
+                                    printf("EXPLORE\n");
                                 }
-                                compteur++;
-                            }
-
-                            if(!isGone)
-                            {
-                                printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
                             }
                         }
                         else
                         {
-                            if(newAnt.memory[0] == 5)
+                            if(newAnt.nbFoodSee > 0)
                             {
-                                printf("SET_MEMORY 0 %d\n", newAnt.memory[1]+1);
-                                printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
+                                int isGone = 0;
+                                int compteur = 0;
+                                int closest = 0;
+                                int dist = newAnt.foodHey[0].dist;
+
+                                while(!isGone && compteur < newAnt.nbFoodSee)
+                                {
+                                    if(!newAnt.foodHey[compteur].isFar)
+                                    {
+                                        if(newAnt.stamina < 9000)
+                                        {
+                                            if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
+                                            {
+                                                printf("EAT %d\n", (10000-newAnt.stamina)/10);
+                                            }
+                                            else
+                                            {
+                                                printf("EAT %d\n", newAnt.stock);
+                                            }
+                                            isGone = 1;
+                                        }
+                                        else
+                                        {
+                                            if(newAnt.stock < 1000)
+                                            {
+                                                if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
+                                                {
+                                                    printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
+                                                }
+                                                else
+                                                {
+                                                    printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
+                                                }
+
+                                                isGone = 1;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if(newAnt.foodHey[compteur].dist < dist)
+                                        {
+                                            closest = compteur;
+                                            dist = newAnt.foodHey[compteur].dist;
+                                        }
+                                    }
+                                    compteur++;
+                                }
+
+                                if(!isGone)
+                                {
+                                    printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
+                                }
                             }
                             else
                             {
-                                printf("SET_MEMORY %d %d\n", newAnt.memory[0]+1, newAnt.memory[1]);
-                                printf("EXPLORE\n");
+                                if(newAnt.memory[0] == 5)
+                                {
+                                    printf("SET_MEMORY 0 %d\n", newAnt.memory[1]+1);
+                                    printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
+                                }
+                                else
+                                {
+                                    printf("SET_MEMORY %d %d\n", newAnt.memory[0]+1, newAnt.memory[1]);
+                                    printf("EXPLORE\n");
+                                }
                             }
                         }
                     }
-                }
-                else
-                {
-                    if(10000-newAnt.stamina <= newAnt.stock * 10)
-                    {
-                        printf("EAT %d\n", (10000-newAnt.stamina)/10);
-                    }
                     else
                     {
-                        printf("EAT %d\n", newAnt.stock);
+                        if(10000-newAnt.stamina <= newAnt.stock * 10)
+                        {
+                            printf("EAT %d\n", (10000-newAnt.stamina)/10);
+                        }
+                        else
+                        {
+                            printf("EAT %d\n", newAnt.stock);
+                        }
                     }
                 }
 
