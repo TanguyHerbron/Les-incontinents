@@ -252,7 +252,7 @@ int main()
 
                     if(newAnt.stamina >= 150)
                     {
-                        if(newAnt.stock >= 500)
+                        if(newAnt.stock >= 100)
                         {
                             if(newAnt.nbNestSee > 0)
                             {
