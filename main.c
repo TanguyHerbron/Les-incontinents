@@ -258,7 +258,7 @@ int main()
                             if(newAnt.nbNestSee > 0)
                             {
                                 int closest = newAnt.nestHey[0].dist;
-                                int bestChoice = 0;
+                                int bestChoice = newAnt.nestHey[0].id;
                                 int isGone = 0;
                                 int compteur = 0;
 
