@@ -321,6 +321,21 @@ int main()
                                 {
                                     if(!newAnt.foodHey[compteur].isFar)
                                     {
+                                        if(newAnt.stock < 500)
+                                        {
+                                            if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
+                                            {
+                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
+                                            }
+                                            else
+                                            {
+                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
+                                            }
+
+                                            isGone = 1;
+                                        }
+                                        else
+                                        {
                                         if(newAnt.stamina < 9000)
                                         {
                                             if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
@@ -332,22 +347,6 @@ int main()
                                                 printf("EAT %d\n", newAnt.stock);
                                             }
                                             isGone = 1;
-                                        }
-                                        else
-                                        {
-                                            if(newAnt.stock < 1000)
-                                            {
-                                                if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
-                                                {
-                                                    printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
-                                                }
-                                                else
-                                                {
-                                                    printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
-                                                }
-
-                                                isGone = 1;
-                                            }
                                         }
                                     }
                                     else
