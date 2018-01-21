@@ -323,13 +323,13 @@ int main()
                                     {
                                         if(newAnt.stock < 500)
                                         {
-                                            if(newAnt.foodHey[compteur].amount < 10000 - newAnt.stock)
+                                            if(newAnt.foodHey[compteur].amount < 1000 - newAnt.stock)
                                             {
                                                 printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, newAnt.foodHey[compteur].amount);
                                             }
                                             else
                                             {
-                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 10000 - newAnt.stock);
+                                                printf("COLLECT %d %d\n", newAnt.foodHey[compteur].id, 1000 - newAnt.stock);
                                             }
 
                                             isGone = 1;
