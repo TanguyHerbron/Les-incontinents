@@ -339,14 +339,14 @@ ANT_INFO ObtenirInfoANT()
 
 void NestSortirFourmis()
 {
-    printf("SET_MEMORY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0");
+    printf("SET_MEMORY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
     printf("ANT_OUT 0 15 0 0\n");
     printf("END\n");
 }
 
 void NestCreerFourmis()
 {
-    printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0");
+    printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
     printf("ANT_NEW 0\n");
     printf("END\n");
 }
