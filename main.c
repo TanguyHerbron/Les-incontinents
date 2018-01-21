@@ -314,7 +314,7 @@ int main()
                             {
                                 if(!newAnt.foodHey[compteur].isFar)
                                 {
-                                    if(newAnt.stamina < 10000)
+                                    if(newAnt.stamina < 9000)
                                     {
                                         if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
                                         {
