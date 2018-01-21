@@ -283,7 +283,7 @@ int main()
 
                                 if(!isGone)
                                 {
-                                    printf("MOVE_TO %d\n", bestChoice+1);s
+                                    printf("MOVE_TO %d\n", bestChoice+1);
                                 }
                             }
                             else
