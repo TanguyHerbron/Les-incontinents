@@ -293,7 +293,7 @@ int main()
 
                                     for(i = 0; i < newAnt.nbPheromone; i++)
                                     {
-                                        if(newAnt.psee[i].type <= newAnt.memory[1])
+                                        if(newAnt.psee[i].type > newAnt.memory[1])
                                         {
                                             bestChoice = i;
                                         }
