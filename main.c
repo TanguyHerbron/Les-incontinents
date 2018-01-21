@@ -293,7 +293,7 @@ int main()
 
                                     for(i = 0; i < newAnt.nbPheromone; i++)
                                     {
-                                        if(newAnt.psee[i].type > newAnt.memory[1])
+                                        if(newAnt.psee[i].type < newAnt.memory[1])
                                         {
                                             bestChoice = i;
                                         }
@@ -462,7 +462,7 @@ int main()
                     }
                     else
                     {
-                        if(newNest.stock > 10)
+                        if(newNest.stock > 10 && newNest.memory[0] < 10)
                         {
                             printf("ANT_NEW 0\n");
                             printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n", newNest.memory[0]+1);
