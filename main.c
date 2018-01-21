@@ -462,7 +462,7 @@ int main()
                     }
                     else
                     {
-                        if(newNest.stock > 10 && newNest.memory[0] < 10)
+                        if(newNest.stock > 10 && newNest.memory[0] < 1)
                         {
                             printf("ANT_NEW 0\n");
                             printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n", newNest.memory[0]+1);
