@@ -263,7 +263,7 @@ int main()
                                 int isGone = 0;
                                 int compteur = 0;
 
-                                while(!isGone && compteur < newAnt.nbNestSee)
+                                while(!isGone && compteur <= newAnt.nbNestSee)
                                 {
                                     if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
                                     {
@@ -283,7 +283,7 @@ int main()
 
                                 if(!isGone)
                                 {
-                                    printf("MOVE_TO %d\n", bestChoice);
+                                    printf("MOVE_TO %d\n", bestChoice+1);
                                     //printf("MOVE_TO 1\n");
                                 }
                             }
