@@ -393,6 +393,10 @@ int main()
                                             printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
                                         }
                                     }
+                                    else
+                                    {
+                                        printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
+                                    }
                                 }
                             }
                             else
