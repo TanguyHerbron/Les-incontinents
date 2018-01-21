@@ -180,6 +180,7 @@ int main()
                         }
 
                         scanf("%d", &newAnt.antHey[newAnt.nbAntSee].stamina);
+                        newAnt.nbAntSee++;
                     }
 
                     if(strcmp(val, "SEE_NEST") == 0)
