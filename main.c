@@ -99,8 +99,6 @@ int main()
                 newAnt.nbNestSee = 0;
                 newAnt.nbFoodSee = 0;
 
-                /*printf("EXPLORE\n");
-                printf("END\n");*/
                 while(!isOver)
                 {
                     scanf("%s", val);
@@ -239,18 +237,12 @@ int main()
                 }
 
                 //SEND ANT
-
-                /*if(newAnt.stamina > 0)
-                {
-                    printf("EXPLORE\n");
-                }*/
-
-                if(newAnt.memory[1] == 255)
+                /*if(newAnt.memory[1] == 255)
                 {
                     printf("SUICIDE\n");
                 }
                 else
-                {
+                {*/
 
                     if(newAnt.stamina >= 150)
                     {
@@ -265,6 +257,7 @@ int main()
 
                                 while(!isGone && compteur <= newAnt.nbNestSee)
                                 {
+                                    printf("TEST\n");
                                     if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
                                     {
                                         printf("NEST %d\n", newAnt.nestHey[compteur].id);
@@ -427,7 +420,7 @@ int main()
                             printf("EAT %d\n", newAnt.stock);
                         }
                     }
-                }
+                //}
 
                 printf("END\n");
             }
