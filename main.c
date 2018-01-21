@@ -336,6 +336,7 @@ int main()
                                         }
                                         else
                                         {
+
                                             if(newAnt.stamina < 9000)
                                             {
                                                 if(10000-newAnt.stamina <= newAnt.foodHey[compteur].amount * 10)
@@ -348,128 +349,133 @@ int main()
                                                 }
                                                 isGone = 1;
                                             }
-                                        }
-                                        else
-                                        {
-                                            if(newAnt.foodHey[compteur].dist < dist)
+                                            else
                                             {
-                                                closest = compteur;
-                                                dist = newAnt.foodHey[compteur].dist;
+                                                isGone = 1;
                                             }
-                                        }
-                                        compteur++;
-                                    }
 
-                                    if(!isGone)
-                                    {
-                                        printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
-                                    }
-                                }
-                                else
-                                {
-                                    if(newAnt.memory[0] == 5)
-                                    {
-                                        printf("SET_MEMORY 0 %d\n", newAnt.memory[1]+1);
-                                        printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
+                                        }
                                     }
                                     else
                                     {
-                                        printf("SET_MEMORY %d %d\n", newAnt.memory[0]+1, newAnt.memory[1]);
-                                        printf("EXPLORE\n");
+                                        if(newAnt.foodHey[compteur].dist < dist)
+                                        {
+                                            closest = compteur;
+                                            dist = newAnt.foodHey[compteur].dist;
+                                        }
                                     }
+                                    compteur++;
                                 }
-                            }
-                        }
-                        else
-                        {
-                            if(10000-newAnt.stamina <= newAnt.stock * 10)
-                            {
-                                printf("EAT %d\n", (10000-newAnt.stamina)/10);
+
+                                if(!isGone)
+                                {
+                                    printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
+                                }
                             }
                             else
                             {
-                                printf("EAT %d\n", newAnt.stock);
+                                if(newAnt.memory[0] == 5)
+                                {
+                                    printf("SET_MEMORY 0 %d\n", newAnt.memory[1]+1);
+                                    printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
+                                }
+                                else
+                                {
+                                    printf("SET_MEMORY %d %d\n", newAnt.memory[0]+1, newAnt.memory[1]);
+                                    printf("EXPLORE\n");
+                                }
                             }
+                        }
+                    }
+                    else
+                    {
+                        if(10000-newAnt.stamina <= newAnt.stock * 10)
+                        {
+                            printf("EAT %d\n", (10000-newAnt.stamina)/10);
+                        }
+                        else
+                        {
+                            printf("EAT %d\n", newAnt.stock);
+                        }
+                    }
+                }
+
+                printf("END\n");
+            }
+            else
+            {
+                if(strcmp(val, "NEST") == 0)
+                {
+                    newNest.nbAntNest = 0;
+                    newNest.nbAntIn = 0;
+                    while(!isOver)
+                    {
+                        scanf("%s", val);
+
+                        if(strcmp(val, "STOCK") == 0)
+                        {
+                            scanf("%d", &newNest.stock);
+                        }
+
+                        if(strcmp(val, "MEMORY") == 0)
+                        {
+                            for(i = 0; i < 20; i++)
+                            {
+                                scanf("%d", &newNest.memory[i]);
+                            }
+                        }
+
+                        if(strcmp(val, "ANT_COUNT") == 0)
+                        {
+                            scanf("%d", &newNest.alist[newNest.nbAntNest].type);
+                            scanf("%d", &newNest.alist[newNest.nbAntNest].nb);
+                            newNest.nbAntNest++;
+                        }
+
+                        if(strcmp(val, "ANT_IN") == 0)
+                        {
+                            scanf("%d", &newNest.antGoBack[newNest.nbAntIn].id);
+                            scanf("%d", &newNest.antGoBack[newNest.nbAntIn].memory[0]);
+                            scanf("%d", &newNest.antGoBack[newNest.nbAntIn].memory[1]);
+                        }
+
+                        if(strcmp(val, "END") == 0)
+                        {
+                            isOver = 1;
+                        }
+                    }
+
+                    //SEND NEST
+
+                    /*if(newNest.memory[0] == 0)
+                    {
+                        printf("ANT_NEW 0\n");
+                        printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
+                    }*/
+
+
+
+                    if(newNest.nbAntNest > 0)
+                    {
+                        printf("ANT_OUT %d %d 0 0\n", newNest.alist[newNest.nbAntNest-1].type, 10);
+                    }
+                    else
+                    {
+                        if(newNest.stock > 10)
+                        {
+                            printf("ANT_NEW 0\n");
+                            printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n", newNest.memory[0]+1);
                         }
                     }
 
                     printf("END\n");
-                }
-                else
-                {
-                    if(strcmp(val, "NEST") == 0)
-                    {
-                        newNest.nbAntNest = 0;
-                        newNest.nbAntIn = 0;
-                        while(!isOver)
-                        {
-                            scanf("%s", val);
 
-                            if(strcmp(val, "STOCK") == 0)
-                            {
-                                scanf("%d", &newNest.stock);
-                            }
-
-                            if(strcmp(val, "MEMORY") == 0)
-                            {
-                                for(i = 0; i < 20; i++)
-                                {
-                                    scanf("%d", &newNest.memory[i]);
-                                }
-                            }
-
-                            if(strcmp(val, "ANT_COUNT") == 0)
-                            {
-                                scanf("%d", &newNest.alist[newNest.nbAntNest].type);
-                                scanf("%d", &newNest.alist[newNest.nbAntNest].nb);
-                                newNest.nbAntNest++;
-                            }
-
-                            if(strcmp(val, "ANT_IN") == 0)
-                            {
-                                scanf("%d", &newNest.antGoBack[newNest.nbAntIn].id);
-                                scanf("%d", &newNest.antGoBack[newNest.nbAntIn].memory[0]);
-                                scanf("%d", &newNest.antGoBack[newNest.nbAntIn].memory[1]);
-                            }
-
-                            if(strcmp(val, "END") == 0)
-                            {
-                                isOver = 1;
-                            }
-                        }
-
-                        //SEND NEST
-
-                        /*if(newNest.memory[0] == 0)
-                        {
-                            printf("ANT_NEW 0\n");
-                            printf("SET_MEMORY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n");
-                        }*/
-
-
-
-                        if(newNest.nbAntNest > 0)
-                        {
-                            printf("ANT_OUT %d %d 0 0\n", newNest.alist[newNest.nbAntNest-1].type, 10);
-                        }
-                        else
-                        {
-                            if(newNest.stock > 10)
-                            {
-                                printf("ANT_NEW 0\n");
-                                printf("SET_MEMORY %d 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n", newNest.memory[0]+1);
-                            }
-                        }
-
-                        printf("END\n");
-
-                    }
                 }
             }
-
-            fflush(stdout);
         }
 
-        return 0;
+        fflush(stdout);
     }
+
+    return 0;
 }
