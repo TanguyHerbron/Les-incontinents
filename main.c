@@ -147,6 +147,7 @@ int main()
                             newAnt.psee[newAnt.nbPheromone].isFar = 0;
                         }
 
+                        scanf("%d", &newAnt.psee[newAnt.nbPheromone].dist);
                         scanf("%d", &newAnt.psee[newAnt.nbPheromone].type);
                         scanf("%d", &newAnt.psee[newAnt.nbPheromone].persistance);
                         newAnt.nbPheromone++;
@@ -369,7 +370,29 @@ int main()
 
                                 if(!isGone)
                                 {
-                                    printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
+                                    if(newAnt.foodHey[closest].dist > 40)
+                                    {
+                                        int moveOn = 0;
+                                        for(i = 0; i < newAnt.nbPheromone; i++)
+                                        {
+                                            if(!newAnt.psee[i].isFar)
+                                            {
+                                                moveOn = 1;
+                                            }
+                                        }
+
+                                        if(moveOn)
+                                        {
+                                            printf("MOVE_TO %d\n", newAnt.foodHey[closest].id);
+
+                                        }
+                                        else
+                                        {
+                                            newAnt.memory[1]++;
+                                            printf("SET_MEMORY 0 %d\n", newAnt.memory[1]);
+                                            printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
+                                        }
+                                    }
                                 }
                             }
                             else
