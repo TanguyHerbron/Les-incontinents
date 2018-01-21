@@ -282,6 +282,7 @@ int main()
 
                                 if(!isGone)
                                 {
+                                    print("Commentaire : ici\n");
                                     printf("MOVE_TO %d\n", bestChoice);
                                 }
                             }
