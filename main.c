@@ -274,7 +274,7 @@ int main()
                                         if(newAnt.nestHey[compteur].dist < closest)
                                         {
                                             closest = newAnt.nestHey[compteur].dist;
-                                            bestChoice = compteur;
+                                            bestChoice = newAnt.nestHey[compteur].id;
                                         }
                                     }
                                     compteur++;
@@ -282,7 +282,7 @@ int main()
 
                                 if(!isGone)
                                 {
-                                    printf("MOVE_TO %d\n", newAnt.nestHey[bestChoice].id);
+                                    printf("MOVE_TO %d\n", bestChoice);
                                 }
                             }
                             else
