@@ -257,9 +257,9 @@ int main()
 
                                 while(!isGone && compteur <= newAnt.nbNestSee)
                                 {
+                                    printf("INSIDE %d %d\n", newAnt.nestHey[compteur].isFar, newAnt.nestHey[compteur].isFriend);
                                     if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
                                     {
-                                        printf("INSIDE\n");
                                         printf("NEST %d\n", newAnt.nestHey[compteur].id);
                                         isGone = 1;
                                     }
