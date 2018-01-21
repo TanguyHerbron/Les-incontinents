@@ -263,7 +263,7 @@ int main()
                                 int isGone = 0;
                                 int compteur = 0;
 
-                                while(!isGone && compteur <= newAnt.nbNestSee)
+                                while(!isGone && compteur < newAnt.nbNestSee)
                                 {
                                     if(!newAnt.nestHey[compteur].isFar && newAnt.nestHey[compteur].isFriend)
                                     {
