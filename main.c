@@ -376,7 +376,7 @@ int main()
                             {
                                 if(newAnt.memory[0] == 5)
                                 {
-                                    printf("SET_MEMORY 0 %d\n", newAnt.memory[1]+1);
+                                    printf("SET_MEMORY 0 %d\n", 1+newAnt.memory[1]);
                                     printf("PUT_PHEROMONE %d\n", newAnt.memory[1]);
                                 }
                                 else
